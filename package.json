@@ -12,7 +12,7 @@
     "docs": "jsdoc -c ./jsdoc.json",
     "watch": "rollup -c -w",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
-    "version": "jsdoc -c ./jsdoc.json && git add docs",
+    "version": "jsdoc -c ./jsdoc.json && git add docs && auto-changelog -p && git add CHANGELOG.md",
     "prepublishOnly": "npm run build",
     "pretest": "yarn build",
     "test": "jest"
