@@ -69,7 +69,8 @@ const browser = {
   input: INPUT_FILE_BROWSER,
   output: {
     file: OUTPUT_FILE_BROWSER,
-    format: 'iife'
+    format: 'iife',
+    intro: 'const ENVIRONMENT = "production";'
   }
 };
 

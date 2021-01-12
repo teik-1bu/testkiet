@@ -1,6 +1,6 @@
 {
   "name": "testkiet",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Connects WebView with Zalo client",
   "license": "MIT",
   "main": "dist/index.js",
@@ -9,9 +9,10 @@
   "umdName": "ZJSBridge",
   "types": "dist/types/src/index.d.ts",
   "scripts": {
+    "docs": "jsdoc -c ./jsdoc.json",
     "watch": "rollup -c -w",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
-    "version": "./build-docs && git add docs",
+    "version": "jsdoc -c ./jsdoc.json && git add docs",
     "prepublishOnly": "npm run build",
     "pretest": "yarn build",
     "test": "jest"
@@ -28,6 +29,7 @@
     "@babel/core": "^7.6.0",
     "@types/jest": "^25.1.3",
     "jest": "^25.1.0",
+    "kida-docs": "^1.0.3",
     "rimraf": "^3.0.0",
     "rollup": "^2.0.6",
     "rollup-plugin-babel": "^4.3.3",
@@ -35,6 +37,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-typescript2": "^0.24.2",
     "rollup-plugin-uglify": "^6.0.3",
     "ts-jest": "^25.2.1",
