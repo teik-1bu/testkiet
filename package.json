@@ -14,16 +14,17 @@
     "version": "./build-docs && git add docs",
     "prepublishOnly": "npm run build",
     "pretest": "yarn build",
-    "test": "jest"
+    "test": "jest",
+    "release": "np"
   },
   "author": {
     "name": "Zalo",
     "url": "http://h5.zdn.vn/jssdk/"
   },
   "np": {
-		"yarn": true,
-		"contents": "dist"
-	},
+    "yarn": true,
+    "contents": "dist"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@types/jest": "^25.1.3",
@@ -41,5 +42,9 @@
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3",
     "yarn": "^1.22.0"
+  },
+  "dependencies": {
+    "np": "^7.2.0",
+    "npm": "^6.14.11"
   }
 }
