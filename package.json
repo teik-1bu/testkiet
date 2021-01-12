@@ -1,6 +1,6 @@
 {
   "name": "testkiet",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Connects WebView with Zalo client",
   "license": "MIT",
   "main": "dist/index.js",
