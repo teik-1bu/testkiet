@@ -23,7 +23,7 @@
   },
   "np": {
     "yarn": true,
-    "publish": false,
+    "runPublish": false,
     "contents": "dist"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
     "@types/jest": "^25.1.3",
     "jest": "^25.1.0",
     "kida-docs": "^1.0.3",
+    "np": "^7.2.0",
     "rimraf": "^3.0.0",
     "rollup": "^2.0.6",
     "rollup-plugin-babel": "^4.3.3",
