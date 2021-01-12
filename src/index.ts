@@ -11,7 +11,7 @@ if (typeof window !== 'undefined' && !window.CustomEvent) {
 // VK Bridge API
 const bridge = createVKBridge(version);
 
-// Export typings
+// Export typingsdada
 export * from './types/data';
 export * from './types/bridge';
 export * from './types/middleware';
