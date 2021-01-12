@@ -11,6 +11,7 @@
   "scripts": {
     "watch": "rollup -c -w",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
+    "version": "./build-docs && git add docs",
     "prepublishOnly": "npm run build",
     "pretest": "yarn build",
     "test": "jest"
@@ -19,6 +20,10 @@
     "name": "Zalo",
     "url": "http://h5.zdn.vn/jssdk/"
   },
+  "np": {
+		"yarn": true,
+		"contents": "dist"
+	},
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@types/jest": "^25.1.3",
