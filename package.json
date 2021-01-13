@@ -9,10 +9,10 @@
   "umdName": "ZJSBridge",
   "types": "dist/types/src/index.d.ts",
   "scripts": {
-    "docs": "jsdoc -c ./jsdoc.json",
+    "docs": "jsdoc -c ./jsdoc.js",
     "watch": "rollup -c -w",
     "build": "rimraf dist && NODE_ENV=production rollup -c",
-    "version": "jsdoc -c ./jsdoc.json && git add docs && auto-changelog -p && git add CHANGELOG.md",
+    "version": "NODE_ENV=production yarn docs && git add docs && auto-changelog -p && git add CHANGELOG.md",
     "prepublishOnly": "npm run build",
     "pretest": "yarn build",
     "test": "jest"
@@ -28,6 +28,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
+    "@open-wc/rollup-plugin-html": "^1.2.5",
+    "@rollup/plugin-html": "^0.2.0",
     "@types/jest": "^25.1.3",
     "jest": "^25.1.0",
     "kida-docs": "^1.0.3",

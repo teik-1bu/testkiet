@@ -1,0 +1,1390 @@
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<h1>Examples</h1>
+<p>Open this page in Zalo app</p>
+
+<div id="app">
+    <div class="container-fluid">
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingAuth">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseAuth" aria-expanded="true"
+                    aria-controls="collapseAuth">
+                    Authentication
+                </h2>
+            </div>
+
+            <div id="collapseAuth" class="collapse show" aria-labelledby="headingAuth">
+                <div class="card-body row">
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="login" name=Login>
+                            <div class="input-group mb-3">
+                                <button-try-it @clicked="login"></button-try-it>
+                            </div>
+                            <textarea cols=50 rows=15 class="form-control" aria-label="Auth info"
+                                    v-model="authInfo"></textarea>
+                        </action-group>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingDevice">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseDevice" aria-expanded="true"
+                    aria-controls="collapseDevice">
+                    Device
+                </h2>
+            </div>
+
+            <div id="collapseDevice" class="collapse show" aria-labelledby="headingDevice">
+                <div class="card-body row">
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openAppStore" name="Open App Store">
+                            <button-try-it @clicked="openAppStore"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="getLocation" name="Get Location">
+                            <button-try-it @clicked="getLocation"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openApp" name="Open App">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="Data"
+                                    v-model="openAppData"></textarea>
+                            </div>
+                            <button-try-it @clicked="openApp"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="configRotate" name="Config Rotate">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="rotate-data">Rotate</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="0 | 1 | 2 | 3"
+                                    aria-label="Rotate" aria-describedby="rotate-data" v-model="rotateData">
+                            </div>
+                            <button-try-it @clicked="configRotate"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="showToast" name="Show Toast">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="toast-message-data">Message</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="Message"
+                                    aria-describedby="toast-message-data" v-model="toastMessageData">
+                            </div>
+                            <button-try-it @clicked="showToast"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="queryLocationHide" name="Query Location Hide">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="location-title">Title</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="Title"
+                                    aria-describedby="location-title" v-model="locationTitleData">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="location-user">To User</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="User"
+                                    aria-describedby="location-user" v-model="locationUserData">
+                            </div>
+                            <button-try-it @clicked="queryLocationHide"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="hideKeyboard" name="Hide Keyboard">
+                            <button-try-it @clicked="hideKeyboard"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openPhone" name="Open Phone">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="Data"
+                                    v-model="phoneData"></textarea>
+                            </div>
+                            <button-try-it @clicked="openPhone"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openQr" name="Open QR">
+                            <button-try-it @clicked="openQr"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openSMS" name="Open SMS">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="sms-content">Content</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="SMS Content"
+                                    aria-describedby="sms-content" v-model="smsContent">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="sms-phone-code">Phone</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder=""
+                                    aria-label="SMS Phone Code" aria-describedby="sms-phone-code"
+                                    v-model="smsPhoneCode">
+                            </div>
+                            <button-try-it @clicked="openSMS"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="viewQr" name="View QR">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="view-qr-uid">UID</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="uid"
+                                    aria-describedby="sms-content" v-model="viewQrUid">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="view-qr-dpn">DPN</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="dpn"
+                                    aria-describedby="view-qr-dpn" v-model="viewQrDpn">
+                            </div>
+                            <button-try-it @clicked="viewQr"></button-try-it>
+                        </action-group>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="keepScreenOn" name="Keep Screen">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="keep-screen-on">Kepp Screen On</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="uid"
+                                    aria-describedby="keep-screen-on" v-model="keepScreenOn">
+                            </div>
+                            <button-try-it @clicked="keepScreen"></button-try-it>
+                        </action-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingH5">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseH5" aria-expanded="true"
+                    aria-controls="collapseH5">
+                    H5
+                </h2>
+            </div>
+
+            <div id="collapseH5" class="collapse show" aria-labelledby="headingH5">
+                <div class="card-body row">
+                    <!-- Change title header -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="changeTitleHeader" name="Change Title Header">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="header-title">Title</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder="" aria-label="RotTitleate"
+                                    aria-describedby="header-title" v-model="headerTitle">
+                            </div>
+                            <button-try-it @clicked="changeTitleHeader"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Config left button -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="configLeftButton" name="Config Left Button">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=7 class="form-control" aria-label="Left Button Data"
+                                    v-model="optionLeftButton"></textarea>
+                            </div>
+                            <button-try-it @clicked="changeLeftButton"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Config right button -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="configRightButton" name="Config Right Button">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="Right Button Data"
+                                    v-model="optionRightButton"></textarea>
+                            </div>
+                            <button-try-it @clicked="createOptionMenu"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Close webview -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="closeWebview" name="Close Web View">
+                            <button-try-it @clicked="closeWebview"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open BioAuthentication -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openBioAuthentication" name="Open Bio Authentication">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="Open Bio Authentication Data"
+                                    v-model="bioauthentication"></textarea>
+                            </div>
+                            <button-try-it @clicked="openBioAuthentication"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Js Bridge -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="jsBridgeCache" name="Js Bridge Cache">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="Manage Cache Data"
+                                    v-model="manageCacheData"></textarea>
+                            </div>
+                            <button-try-it @clicked="jsBridgeCache"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Change color header -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="changeColorHeader" name="Change Color Header">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="header-color">Color</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder=""
+                                    aria-label="Header Color Data" aria-describedby="header-color"
+                                    v-model="colorHeaderData">
+                            </div>
+                            <button-try-it @clicked="changeColorHeader"></button-try-it>
+                        </action-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingZalo">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseZalo" aria-expanded="true"
+                    aria-controls="collapseZalo">
+                    Zalo
+                </h2>
+            </div>
+
+            <div id="collapseZalo" class="collapse show" aria-labelledby="headingZalo">
+                <div class="card-body row">
+                    <!-- Open Tab Contact -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openTabContact" name="Open Tab Contact">
+                            <button-try-it @clicked="openTabContact"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Get Dowloaded Sticker -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="getDownloadedSticker" name="Get Dowloaded Sticker">
+                            <button-try-it @clicked="getDownloadedSticker"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Share Sticker -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openShareSticker" name="Open Share Sticker">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="cateDetailsInfo"
+                                    v-model="cateDetailsInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openShareSticker"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open In App -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openInApp" name="Open In App">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="open-in-app-url">URL</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder=""
+                                    aria-label="open-in-app-url" aria-describedby="open-in-app-url"
+                                    v-model="openInAppUrl">
+                            </div>
+                            <button-try-it @clicked="openInApp"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Out App -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openOutApp" name="Open Out App">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="open-out-app-url">URL</span>
+                                </div>
+                                <input type="text" class="form-control h-auto" placeholder=""
+                                    aria-label="open-out-app-url" aria-describedby="open-out-app-url"
+                                    v-model="openOutAppUrl">
+                            </div>
+                            <button-try-it @clicked="openOutApp"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Post Feed -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openPostFeed" name="Open Post Feed">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="feedInfo"
+                                    v-model="feedInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openPostFeed"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Share Sheet -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openShareSheet" name="Open Share Sheet">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="sheetInfo"
+                                    v-model="sheetInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openShareSheet"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Profile -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openProfile" name="Open Profile">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="profileInfo"
+                                    v-model="profileInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openProfile"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Feed Detail -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openFeedDetail" name="Open Feed Detail">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="feedDetailInfo"
+                                    v-model="feedDetailInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openFeedDetail"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Friend Rada -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openFriendRada" name="Open Friend Rada">
+                            <button-try-it @clicked="openFriendRada"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Page -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openPage" name="Open Page">
+                            <button-try-it @clicked="openPage"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Photo Detail -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openPhotoDetail" name="Open Photo Detail">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="photoDetailInfo"
+                                    v-model="photoDetailInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openPhotoDetail"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Galary -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openGalary" name="Open Galary">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=3 class="form-control" aria-label="galaryInfo"
+                                    v-model="galaryInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openGalary"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Game Center -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openGameCenter" name="Open Game Center">
+                            <button-try-it @clicked="openGameCenter"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Game News -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openGameNews" name="Open Game News">
+                            <button-try-it @clicked="openGameNews"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Tab Social -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openTabSocial" name="Open Tab Social">
+                            <button-try-it @clicked="openTabSocial"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Friend Suggest -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openFriendSuggest" name="Open Friend Suggest">
+                            <button-try-it @clicked="openFriendSuggest"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Group List -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openGroupList" name="Open Group List">
+                            <button-try-it @clicked="openGroupList"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Nearby -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openNearby" name="Open Nearby">
+                            <button-try-it @clicked="openNearby"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Room -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openRoom" name="Open Room">
+                            <button-try-it @clicked="openRoom"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Sticker Store -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openStickerStore" name="Open Sticker Store">
+                            <button-try-it @clicked="openStickerStore"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Create Chat -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openCreateChat" name="Open Create Chat">
+                            <button-try-it @clicked="openCreateChat"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Copy Link Cate Sticker -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="copyLinkCateSticker" name="Copy Link Cate Sticker">
+                            <button-try-it @clicked="copyLinkCateSticker"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Chat -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openChat" name="Open Chat">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="chatInfo"
+                                    v-model="chatInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openChat"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Tab Chat -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openTabChat" name="Open Tab Chat">
+                            <button-try-it @clicked="openTabChat"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Add Friend -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openAddFriend" name="Open Add Friend">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="addFriendInfo"
+                                    v-model="addFriendInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openAddFriend"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Tab More -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openTabMore" name="Open Tab More">
+                            <button-try-it @clicked="openTabMore"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Login Devices -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openLoginDevices" name="Open Login Devices">
+                            <button-try-it @clicked="openLoginDevices"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Send Sticker -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openSendSticker" name="Open Send Sticker">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="sendStickerInfo"
+                                    v-model="sendStickerInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openSendSticker"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Report Abuse -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="reportAbuse" name="Report Abuse">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="reportAbuseInfo"
+                                    v-model="reportAbuseInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="reportAbuse"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Follow OA -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="followOA" name="Follow OA">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=3 class="form-control" aria-label="followOAInfo"
+                                    v-model="followOAInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="followOA"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- UnFollow OA -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="unfollowOA" name="UnFollow OA">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=3 class="form-control" aria-label="unfollowOAInfo"
+                                    v-model="unfollowOAInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="unfollowOA"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Game Detail -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openGameDetail" name="Open Game Detail">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="gameDetailInfo"
+                                    v-model="gameDetailInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openGameDetail"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Request Camera -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="requestCamera" name="Request camera">
+                            <button-try-it @clicked="requestCamera"></button-try-it>
+                        </action-group>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingMisc">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseMisc" aria-expanded="true"
+                    aria-controls="collapseMisc">
+                    Misc
+                </h2>
+            </div>
+
+            <div id="collapseMisc" class="collapse show" aria-labelledby="headingMisc">
+                <div class="card-body row">
+                    <!-- Check App Installed -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="checkAppInstalled" name="Check App Installed">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="appInstalledInfo"
+                                    v-model="appInstalledInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="checkAppInstalled"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Query Show -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="queryShow" name="Query Show">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="queryShowInfo"
+                                    v-model="queryShowInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="queryShow"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Query Hide -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="queryHide" name="Query Hide">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="queryHideInfo"
+                                    v-model="queryHideInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="queryHide"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open In App Rw -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openInAppRw" name="Open In App Rw">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="openInAppRwInfo"
+                                    v-model="openInAppRwInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openInAppRw"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Get Tracking Status -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="getTrackingStatus" name="Get Tracking Status">
+                            <button-try-it @clicked="getTrackingStatus"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Set Tracking Status -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="setTrackingStatus" name="Set Tracking Status">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=3 class="form-control" aria-label="trackingStatusInfo"
+                                    v-model="trackingStatusInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="setTrackingStatus"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Get Day Step -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="getDayStep" name="Get Day Step">
+                            <button-try-it @clicked="getDayStep"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Force Submit Data -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="forceSubmitData" name="Force Submit Data">
+                            <button-try-it @clicked="forceSubmitData"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Set Weight -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="setWeight" name="Set Weight">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=3 class="form-control" aria-label="weightInfo"
+                                    v-model="weightInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="setWeight"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Open Profile Ext -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openProfileExt" name="Open Profile Ext">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="profileExtInfo"
+                                    v-model="profileExtInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="openProfileExt"></button-try-it>
+                        </action-group>
+                    </div>
+                    <!-- Download Cate -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="downloadCate" name="Download Cate">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=15 class="form-control" aria-label="downloadCateInfo"
+                                    v-model="downloadCateInfo"></textarea>
+                            </div>
+                            <button-try-it @clicked="downloadCate"></button-try-it>
+                        </action-group>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingAds">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseAds" aria-expanded="true"
+                    aria-controls="collapseAds">
+                    Ads
+                </h2>
+            </div>
+
+            <div id="collapseAds" class="collapse show" aria-labelledby="headingAds">
+                <div class="card-body row">
+                    <!-- Ads Interstitial -->
+                    <div class="col-xl-4 col-lg-6 col-12 mb-3">
+                        <action-group id="openInterstitialAds" name="Open Interstitial Ads">
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=5 class="form-control" aria-label="interstitialAdsData"
+                                    v-model="interstitialAdsData"></textarea>
+                            </div>
+                            <button-try-it @clicked="openInterstitialAds"></button-try-it>
+                        </action-group>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card border-0">
+            <div class="pl-0 card-header bg-transparent" id="headingCustom">
+                <h2 class="mb-0 mt-0" data-toggle="collapse" data-target="#collapseCustom" aria-expanded="true"
+                    aria-controls="collapseCustom">
+                    Custom Action
+                </h2>
+            </div>
+
+            <div id="collapseCustom" class="collapse show" aria-labelledby="headingCustom">
+                <div class="card-body row">
+                    <div class="col-xl-12 col-lg-12 col-12 mb-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="action-name">Action</span>
+                                </div>
+                                <input type="text" class="form-control h-auto"
+                                    placeholder="Action (Ex: action.open.room)" aria-label="action-name"
+                                    aria-describedby="action-name" v-model="actionName">
+                            </div>
+                            <div class="input-group mb-3">
+                                <textarea cols=50 rows=10 class="form-control" aria-label="actionData"
+                                    v-model="actionData"></textarea>
+                            </div>
+
+                        </div>
+                        <button-try-it @clicked="callCustomAction"></button-try-it>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="module" src="../src/browser.ts"></script>
+<script>
+    eruda.init({
+        tool: ['console', 'resources'],
+        useShadowDom: true,
+    });
+    // eruda.show();
+    const getActionData = () => {
+        try {
+            return JSON.stringify(JSON.parse(window.localStorage.getItem('custom_action_data')), undefined, 4) || JSON.stringify({
+                "profile_uid": "4158847171892004824",
+                "type": "1",
+                "app_id": "1867276734621734136"
+            }, undefined, 4)
+        } catch (error) {
+            return JSON.stringify({
+                "profile_uid": "4158847171892004824",
+                "type": "1",
+                "app_id": "1867276734621734136"
+            }, undefined, 4)
+        }
+    }
+    Vue.component('button-try-it', {
+        props: ['id'],
+        methods: {
+            clicked() {
+                this.$emit('clicked');
+            }
+        },
+        template: `<button class="btn btn-info" @click="clicked">Try it</button>`
+    });
+    Vue.component('action-group', {
+        props: ['id', 'name'],
+        methods: {
+            clicked() {
+                this.$emit('clicked');
+            }
+        },
+        template: `
+                <div class="card" style="cursor: pointer;">
+                    <div class="card-header bg-info" :id="'heading' + id" data-toggle="collapse" :data-target="'#collapse' + id" aria-expanded="true" :aria-controls="'collapse' + id">
+                        <h4 class="mb-0 mt-0 text-white">
+                            {{name}}
+                        </h4>
+                    </div>
+                    <div :id="'collapse' + id" class="collapse" :aria-labelledby="'heading' + id">
+                        <div class="card-body">
+                            <slot></slot>
+                        </div>
+                    </div>
+                </div>
+                `
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            authInfo: null,
+            openAppData: JSON.stringify({
+                "android": {
+                    "package": "gsn.game.zingplaynew1",
+                    "extUrl": "",
+                    "url": "http://app.zaloapp.com/gsn.game.zingplaynew1?pid=zalo&c=gamecenter&r=market%3A%2F%2Fdetails%3Fid%3Dgsn.game.zingplaynew1%26referrer%3DSource%253Dzalogc%2526Position%253Dzlgc%2526Campaign%253Dzalogc"
+                },
+                "ios": {
+                    "itunes_id": 0,
+                    "scheme_url": "zalo-1396017800851131651",
+                    "url": "http://app.zaloapp.com/id908617867?pid=zalo&c=gamecenter"
+                },
+                "wp_data": {
+                    "protocol_url": "zalo-1396017800851131651://",
+                    "url": "http://www.windowsphone.com/s?appid=4e4dc260-6cdb-4f35-bbd7-9deb2ef4ea2f"
+                }
+            }, undefined, 4),
+            rotateData: '2',
+            toastMessageData: "Hi Zalo",
+            locationTitleData: "I'm here!",
+            locationUserData: "2858695267076482776",
+            smsContent: "Test open sms from zalo",
+            smsPhoneCode: "+84123456789",
+            viewQrUid: "2858695267076482776",
+            viewQrDpn: "",
+            keepScreenOn: "0",
+            phoneData: JSON.stringify({
+                "phoneCode": "+84123456789"
+            }, undefined, 4),
+            headerTitle: "New Title",
+            optionLeftButton: JSON.stringify({
+                "buttonType": 1,
+                "dataConfig": {
+                    "confirmToExit": 1,
+                    "dialogMessage": "đây là custom thông báo đóng"
+                }
+            }, undefined, 4),
+            optionRightButton: JSON.stringify([{
+                "title": "Share to friend",
+                "action": "action.open.sharesheet",
+                "type": 0,
+                "data": {
+                    "type": 5,
+                    "avt": "https://s120.avatar.talk.zdn.vn/5/c/d/8/3/120/4befce38fd0f83177003c63fb7a64b70.jpg",
+                    "uid": "37431359118750922",
+                    "dpn": "Zalo Transport"
+                },
+                "iconUrl": "https://s120.avatar.talk.zdn.vn/5/c/d/8/3/120/4befce38fd0f83177003c63fb7a64b70.jpg",
+                "showAsAction": 1
+            }, {
+                "title": "Post on timeline",
+                "action": "action.open.postfeed",
+                "type": 0,
+                "data": {
+                    "type": 5,
+                    "avt": "https://s120.avatar.talk.zdn.vn/5/c/d/8/3/120/4befce38fd0f83177003c63fb7a64b70.jpg",
+                    "uid": "37431359118750922",
+                    "dpn": "Zalo Transport"
+                }
+            }], undefined, 4),
+
+            bioauthentication: JSON.stringify({
+                "secret_data": "aGkgYmFu",
+                "app_id": "1867276734621734136",
+                "ui": {
+                    "title": "Biometric login for my app",
+                    "sub_title": "Log in using your biometric credential",
+                    "negative_text": "Cancel"
+                },
+                "require_fingerprint": true
+            }, undefined, 4),
+            manageCacheData: JSON.stringify({
+                "actions": [
+                    {
+                        "actionType": 1,
+                        "data": "https://h5.zdn.vn/jssdk/index.html"
+                    }
+                ],
+                "configVersion": 0
+            }, undefined, 4),
+            closeWebviewdata: '{"handle_h5": 1}',
+            colorHeaderData: '#6400bfff',
+            cateDetailsInfo: JSON.stringify({
+                "id": 50,
+                "name": "Khu Vườn Trên Mây 1",
+                "totalImage": 34,
+                "thumbUrl": "http://api.zaloapp.com/c/0/c/7/c/50/preview/",
+                "iconUrl": "http://api.zaloapp.com/c/0/c/7/c/50/icon/kvtm1_ic.png",
+                "iconPreview": "http://api.zaloapp.com/c/0/c/7/c/50/icon_pre/kvtm1_thumb.png",
+                "status": 0,
+                "version": 1,
+                "thumbImg": "http://api.zaloapp.com/c/0/c/7/c/50/preview/kvtm1_cover.png",
+                "source": "",
+                "permission": 1,
+                "downloaded": 0,
+                "cost": 0,
+                "purchase": false,
+                "qrCode": "http://qr-stickers.zaloapp.com/1/qrstickerc0c07e2a426fab31f27e.jpg",
+                "linkPromote": "http://stickers.zaloapp.com/detail?cid=c65678bc44f9ada7f4e8",
+                "slogan": null,
+                "isHidden": 0
+            }, undefined, 4),
+            openInAppUrl: "https://zalo.me",
+            openOutAppUrl: "https://zalo.me",
+            feedInfo: JSON.stringify({
+                "type": 1,
+                "photoUrl": "http://api.zaloapp.com/c/0/c/7/c/50/icon_pre/kvtm1_thumb.png"
+            }, undefined, 4),
+            sheetInfo: JSON.stringify({
+                "type": 1,
+                "photoUrl": "http://api.zaloapp.com/c/0/c/7/c/50/icon_pre/kvtm1_thumb.png"
+            }, undefined, 4),
+            profileInfo: JSON.stringify({
+                "uId": "4158847171892004824",
+                "type": 1,
+                "appId": "1867276734621734136",
+                "sourceId": "",
+                "sourceIndex": ""
+            }, undefined, 4),
+            feedDetailInfo: JSON.stringify({
+                "feed_id": "",
+                "owner_id": "2858695267076482776"
+            }, undefined, 4),
+            photoDetailInfo: JSON.stringify({
+                "owner_id": "2858695267076482776",
+                "photo_id": ""
+            }, undefined, 4),
+            galaryInfo: JSON.stringify({
+                "uId": "2858695267076482776"
+            }, undefined, 4),
+            chatInfo: JSON.stringify({
+                "uId": "4158847171892004824",
+                "type": 1,
+                "appId": "1867276734621734136",
+                "sourceId": "",
+                "sourceIndex": "",
+                "force": 0
+            }, undefined, 4),
+            addFriendInfo: JSON.stringify({
+                "uid_from": "2858695267076482776",
+                "uid_to": "2858695267076482776",
+                "source": "",
+            }, undefined, 4),
+            sendStickerInfo: JSON.stringify({
+                "id": 1,
+                "touserid": "2858695267076482776",
+                "cateId": 1,
+                "type": 1,
+                "autoplay": 1,
+                "msg": "Hello guys",
+                "mentions": [],
+                "stickerList": [
+                    {
+                        "id": 1,
+                        "catId": 1,
+                        "type": 1,
+                        "autoplay": 1
+                    }
+                ]
+            }, undefined, 4),
+            reportAbuseInfo: JSON.stringify({
+                "uidto": "",
+                "type": 5,
+                "objectid": "",
+                "message": "",
+            }, undefined, 4),
+            followOAInfo: JSON.stringify({
+                "uid": "2858695267076482776",
+            }, undefined, 4),
+            unfollowOAInfo: JSON.stringify({
+                "uid": "2858695267076482776",
+            }, undefined, 4),
+            gameDetailInfo: JSON.stringify({
+                "zapp_id": "1867276734621734136",
+                "package": "gsn.game.zingplaynew1"
+            }, undefined, 4),
+            appInstalledInfo: JSON.stringify({
+                "totalApp": 3,
+                "apps": [
+                    {
+                        "app_1": {
+                            "packageName": "com.vng.tvl",
+                            "schema": "zalo-4341275532218618714://",
+                            "wpStoreUrl": ""
+                        }
+                    },
+                    {
+                        "app_2": {
+                            "packageName": "com.vng.gpdttkvn",
+                            "schema": "zalo-3945316935671174926://",
+                            "wpStoreUrl": ""
+                        }
+                    },
+                    {
+                        "app_3": {
+                            "packageName": "gsn.game.zingplaynew1",
+                            "schema": "zalo-3554569838779270945://",
+                            "wpStoreUrl": ""
+                        }
+                    }
+                ]
+            }, undefined, 4),
+            queryShowInfo: JSON.stringify({
+                "query": "Exit ?",
+                "touserid": "2858695267076482776"
+            }, undefined, 4),
+            queryHideInfo: JSON.stringify({
+                "query": "Exit ?",
+                "touserid": "2858695267076482776"
+            }, undefined, 4),
+            openInAppRwInfo: JSON.stringify({
+                "url": "https://zalo.me",
+            }, undefined, 4),
+            trackingStatusInfo: JSON.stringify({
+                "status": 0,
+            }, undefined, 4),
+            weightInfo: JSON.stringify({
+                "weight": 60,
+            }, undefined, 4),
+            profileExtInfo: JSON.stringify({
+                "profile_uid": "4158847171892004824",
+                "type": "1",
+                "app_id": "1867276734621734136"
+            }, undefined, 4),
+            downloadCateInfo: JSON.stringify({
+                "cateDetailsInfo": {
+                    "id": 50,
+                    "name": "Khu Vườn Trên Mây 1",
+                    "totalImage": 34,
+                    "thumbUrl": "http://api.zaloapp.com/c/0/c/7/c/50/preview/",
+                    "iconUrl": "http://api.zaloapp.com/c/0/c/7/c/50/icon/kvtm1_ic.png",
+                    "iconPreview": "http://api.zaloapp.com/c/0/c/7/c/50/icon_pre/kvtm1_thumb.png",
+                    "status": 0,
+                    "version": 1,
+                    "thumbImg": "http://api.zaloapp.com/c/0/c/7/c/50/preview/kvtm1_cover.png",
+                    "source": "",
+                    "permission": 1,
+                    "downloaded": 0,
+                    "cost": 0,
+                    "purchase": false,
+                    "qrCode": "http://qr-stickers.zaloapp.com/1/qrstickerc0c07e2a426fab31f27e.jpg",
+                    "linkPromote": "http://stickers.zaloapp.com/detail?cid=c65678bc44f9ada7f4e8",
+                    "slogan": null,
+                    "isHidden": 0
+                }
+            }, undefined, 4),
+            actionName: window.localStorage.getItem('custom_action_name') || "action.open.profile.ext",
+            actionData: getActionData(),
+            interstitialAdsData: JSON.stringify({
+                "zoneId": "463343579225877504",
+                "actionType": 1
+            }, undefined, 4),
+        },
+        created: function () {
+            console.log('getAccessToken: ' + ZJSBridge.Zalo.getAccessToken());
+        },
+        methods: {
+            login: function (item, event) {
+                ZJSBridge.login((data) => {
+                    try {
+                        this.authInfo = JSON.stringify(data, undefined, 4);
+                    } catch (error) {
+                        console.log(error)
+                        this.authInfo = data
+                    }
+
+                })
+            },
+            openAppStore: function (item, event) { // pass
+                var data = {
+                    "android": {
+                        "url": "https://play.google.com/store/apps/details?id=com.atozappstore&hl=vi"
+                    }
+                }
+                ZJSBridge.Device.openAppStore(data)
+            },
+            getLocation: function (item, event) { // pass
+                ZJSBridge.Device.getLocation(false, "App cần quyền location để chạy chức năng này", (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openApp: function (item, event) { // pass
+                ZJSBridge.Device.openApp(JSON.parse(this.openAppData))
+            },
+            configRotate: function (item, event) { // pass
+                ZJSBridge.Device.configRotate(parseInt(this.rotateData, 10), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            showToast: function (item, event) { // pass
+                ZJSBridge.Device.showToast(this.toastMessageData, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            queryLocationHide: function (item, event) { // pass
+                ZJSBridge.Device.queryLocationHide(this.locationTitleData, this.locationUserData, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            hideKeyboard: function (item, event) { // pass
+                ZJSBridge.Device.hideKeyboard((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openPhone: function (item, event) {
+                ZJSBridge.Device.openPhone(JSON.parse(this.phoneData), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openQr: function (item, event) {
+                ZJSBridge.Device.openQr((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openSMS: function (item, event) {
+                ZJSBridge.Device.openSMS(this.smsContent, this.smsPhoneCode)
+            },
+            viewQr: function (item, event) {
+                ZJSBridge.Device.viewQr(this.viewQrUid, this.viewQrDpn, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            keepScreen: function (item, event) {
+                ZJSBridge.Device.keepScreen(this.keepScreenOn, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            changeTitleHeader: function (item, event) {
+                ZJSBridge.H5.changeTitleHeader(this.headerTitle, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            changeLeftButton: function (item, event) {
+                ZJSBridge.H5.configLeftButton(JSON.parse(this.optionLeftButton), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            createOptionMenu: function (item, event) {
+                let data = JSON.parse(this.optionRightButton)
+                ZJSBridge.H5.configRightMenu(data, 1, 0, (e) => {
+                    alert(JSON.stringify(e))
+                }, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            closeWebview: function (item, event) {
+                ZJSBridge.H5.closeWebview((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openBioAuthentication: function (item, event) {
+                ZJSBridge.H5.openBioAuthentication(JSON.parse(this.bioauthentication), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            jsBridgeCache: function (item, event) {
+                ZJSBridge.H5.jsBridge(JSON.parse(this.manageCacheData), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            changeColorHeader: function (item, event) {
+                ZJSBridge.H5.changeColorHeader(this.colorHeaderData, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openTabContact: function (item, event) {
+                ZJSBridge.Zalo.openTabContact((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            registerCloseWebview: function () {
+                ZJSBridge.Zalo.registerListenerEvent("h5.event.action.close", this.closeWebviewdata)
+            },
+            getDownloadedSticker: function (item, event) {
+                ZJSBridge.Zalo.getDownloadedSticker((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openShareSticker: function (item, event) {
+                ZJSBridge.Zalo.openShareSticker(JSON.parse(this.cateDetailsInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openInApp: function (item, event) {
+                ZJSBridge.Zalo.openInApp(this.openInAppUrl, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openOutApp: function (item, event) {
+                ZJSBridge.Zalo.openOutApp(this.openOutAppUrl, (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openPostFeed: function (item, event) {
+                ZJSBridge.Zalo.openPostFeed(JSON.parse(this.feedInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openShareSheet: function (item, event) {
+                ZJSBridge.Zalo.openShareSheet(JSON.parse(this.sheetInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openProfile: function (item, event) {
+                ZJSBridge.Zalo.openProfile(JSON.parse(this.profileInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openFeedDetail: function (item, event) {
+                ZJSBridge.Zalo.openFeedDetail(JSON.parse(this.feedDetailInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openFriendRada: function (item, event) {
+                ZJSBridge.Zalo.openFriendRada((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openPage: function (item, event) {
+                ZJSBridge.Zalo.openPage((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openPhotoDetail: function (item, event) {
+                ZJSBridge.Zalo.openPhotoDetail(JSON.parse(this.photoDetailInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openGalary: function (item, event) {
+                ZJSBridge.Zalo.openGalary(JSON.parse(this.galaryInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openGameCenter: function (item, event) {
+                ZJSBridge.Zalo.openGameCenter((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openGameNews: function (item, event) {
+                ZJSBridge.Zalo.openGameNews((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openTabSocial: function (item, event) {
+                ZJSBridge.Zalo.openTabSocial((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openFriendSuggest: function (item, event) {
+                ZJSBridge.Zalo.openFriendSuggest((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openGroupList: function (item, event) {
+                ZJSBridge.Zalo.openGroupList((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openNearby: function (item, event) {
+                ZJSBridge.Zalo.openNearby((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openRoom: function (item, event) {
+                ZJSBridge.Zalo.openRoom((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openStickerStore: function (item, event) {
+                ZJSBridge.Zalo.openStickerStore((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openCreateChat: function (item, event) {
+                ZJSBridge.Zalo.openCreateChat((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            copyLinkCateSticker: function (item, event) {
+                ZJSBridge.Zalo.copyLinkCateSticker((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openChat: function (item, event) {
+                ZJSBridge.Zalo.openChat(JSON.parse(this.chatInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openTabChat: function (item, event) {
+                ZJSBridge.Zalo.openTabChat((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openAddFriend: function (item, event) {
+                ZJSBridge.Zalo.openAddFriend(JSON.parse(this.addFriendInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openTabMore: function (item, event) {
+                ZJSBridge.Zalo.openTabMore((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openLoginDevices: function (item, event) {
+                ZJSBridge.Zalo.openLoginDevices((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openSendSticker: function (item, event) {
+                ZJSBridge.Zalo.openSendSticker(JSON.parse(this.sendStickerInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            reportAbuse: function (item, event) {
+                ZJSBridge.Zalo.reportAbuse(JSON.parse(this.reportAbuseInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            followOA: function (item, event) {
+                ZJSBridge.Zalo.followOA(JSON.parse(this.followOAInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            unfollowOA: function (item, event) {
+                ZJSBridge.Zalo.unfollowOA(JSON.parse(this.unfollowOAInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openGameDetail: function (item, event) {
+                ZJSBridge.Zalo.openGameDetail(JSON.parse(this.gameDetailInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            checkAppInstalled: function (item, event) {
+                ZJSBridge.Misc.checkAppInstalled(JSON.parse(this.appInstalledInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            queryShow: function (item, event) {
+                ZJSBridge.Misc.queryShow(JSON.parse(this.queryShowInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            queryHide: function (item, event) {
+                ZJSBridge.Misc.queryHide(JSON.parse(this.queryHideInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openInAppRw: function (item, event) {
+                ZJSBridge.Misc.openInAppRw(JSON.parse(this.openInAppRwInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            getTrackingStatus: function (item, event) {
+                ZJSBridge.Misc.getTrackingStatus((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            setTrackingStatus: function (item, event) {
+                ZJSBridge.Misc.setTrackingStatus(JSON.parse(this.trackingStatusInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            getDayStep: function (item, event) {
+                ZJSBridge.Misc.getDayStep((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            forceSubmitData: function (item, event) {
+                ZJSBridge.Misc.forceSubmitData((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            setWeight: function (item, event) {
+                ZJSBridge.Misc.setWeight(JSON.parse(this.weightInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            openProfileExt: function (item, event) {
+                ZJSBridge.Misc.openProfileExt(JSON.parse(this.profileExtInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            downloadCate: function (item, event) {
+                ZJSBridge.Misc.downloadCate(JSON.parse(this.downloadCateInfo), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            callCustomAction: function (item, event) {
+                try {
+                    ZJSBridge.callCustomAction(this.actionName, JSON.parse(this.actionData), (e) => {
+                        alert(JSON.stringify(e))
+                    });
+                } catch (error) {
+                    alert(error)
+                }
+
+                window.localStorage.setItem('custom_action_name', this.actionName);
+                window.localStorage.setItem('custom_action_data', this.actionData)
+            },
+            openInterstitialAds: function (item, event) {
+                ZJSBridge.Ads.openInterstitialAds(JSON.parse(this.interstitialAdsData), (e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+            requestCamera: function (item, event) {
+                ZJSBridge.Zalo.requestCamera((e) => {
+                    alert(JSON.stringify(e))
+                })
+            },
+        }
+    });
+</script>

@@ -6,6 +6,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
 import pkg from './package.json';
+import html from '@rollup/plugin-html';
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 
@@ -25,13 +26,17 @@ const getPlugins = (tsDeclaration = false) => [
             }
           }
         }
-      : {}
+      : {
+        typescript: require('typescript'),
+        objectHashIgnoreUnknownHack: true
+      }
   ),
   babel(),
   json(),
   nodeResolve({ mainFields: ['module', 'jsnext'] }),
   commonjs({ include: 'node_modules/**' }),
-  bundleSize()
+  bundleSize(),
+  html()
 ];
 
 const cjs = {
@@ -69,8 +74,7 @@ const browser = {
   input: INPUT_FILE_BROWSER,
   output: {
     file: OUTPUT_FILE_BROWSER,
-    format: 'iife',
-    intro: 'const ENVIRONMENT = "production";'
+    format: 'iife'
   }
 };
 
