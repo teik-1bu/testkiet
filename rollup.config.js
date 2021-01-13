@@ -19,6 +19,7 @@ const getPlugins = (tsDeclaration = false) => [
     tsDeclaration
       ? {
           useTsconfigDeclarationDir: true,
+        objectHashIgnoreUnknownHack: true,
           tsconfigOverride: {
             compilerOptions: {
               declaration: true,
